@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row, Tag } from 'antd';
+import { Card, Col, Row } from 'antd';
 import { Image } from '../../../shared/components/Image';
 import { Stat } from '../../../shared/components/Stat';
 import { FilmDetail } from '../../../shared/types/generated';

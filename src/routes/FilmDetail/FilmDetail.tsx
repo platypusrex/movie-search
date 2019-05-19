@@ -11,7 +11,11 @@ const ContentWrapper = styled.div`
 `;
 
 export const FilmDetail: React.FC<RouteComponentProps<{id: string}>> = ({ history, match: { params } }) => {
-  const { film, loading } = useFilmById(params.id, true);
+  const { film, loading, error } = useFilmById(params.id, true);
+
+  if (error) {
+    return <Empty description={error}/>
+  }
 
   if (!film) {
     return loading ? null : <Empty description="Sorry, we couldn't locate any details on this film"/>;
