@@ -19,7 +19,7 @@ export const RatingTags: React.FC<ParentProps> = ({ ratings }) => {
   return (
     <>
       {ratings.map((rating, i) => (
-        <RatingTag color={tagColors[i]}>
+        <RatingTag key={`${rating.Value}${i}`} color={tagColors[i]}>
           {rating.Source} {rating.Value}
         </RatingTag>
       ))}
