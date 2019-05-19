@@ -11,6 +11,9 @@
 # production
 /build
 
+#types
+./src/shared/types/generated.ts
+
 # misc
 .DS_Store
 .env.local

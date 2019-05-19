@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Layout } from 'antd';
+import { ScrollTop } from './shared/components/ScrollTop';
+import { Search } from './routes/Search/Search';
+import { FilmDetail } from './routes/FilmDetail/FilmDetail';
+import { Routes } from './shared/constants/routes';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export const App: React.FC<{}> = () => (
+  <Layout>
+    <Layout.Content>
+      <ScrollTop>
+        <Switch>
+          <Route exact path={Routes.HOME} render={() => <Redirect to={Routes.SEARCH}/>}/>
+          <Route exact={true} path={Routes.SEARCH} component={Search}/>
+          <Route exact={true} path={Routes.FILM_DETAIL} component={FilmDetail}/>
+        </Switch>
+      </ScrollTop>
+    </Layout.Content>
+  </Layout>
+);

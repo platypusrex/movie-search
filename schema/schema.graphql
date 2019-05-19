@@ -1,0 +1,66 @@
+type Rating {
+  Source: String!
+  Value: String!
+}
+
+type FilmDetail {
+  Title: String!
+  Year: String!
+  Rated:String!
+  Released: String!
+  Runtime: String!
+  Genre: String!
+  Director: String!
+  Writer: String!
+  Actors: String!
+  Plot: String!
+  Language: String!
+  Country: String!
+  Awards: String!
+  Poster: String!
+  Metascore: String!
+  imdbRating: String!
+  imdbVotes: String!
+  imdbID: String!
+  Type: String!
+  DVD: String!
+  BoxOffice: String!
+  Production: String!
+  Website: String!
+  Ratings: [Rating!]!
+}
+
+type Film {
+  Poster: String!
+  Title: String!
+  Type: String!
+  Year: String!
+  imdbID: String!
+}
+
+input SearchFilmsInput {
+  apikey: String!
+  type: String!
+  page: Int!
+  s: String!
+}
+
+type SearchFilmsPayload {
+  totalResults: String!
+  Search: [Film!]
+}
+
+input FilmByIdInput {
+  apikey: String!
+  i: String!
+  plot: String!
+}
+
+type Query {
+  searchFilms (input: SearchFilmsInput!): SearchFilmsPayload!
+  filmById (input: FilmByIdInput!): FilmDetail!
+}
+
+
+
+
